@@ -1,0 +1,29 @@
+body {
+    background-color:  rgb(171, 176, 221); /*rgb(171, 176, 221);*/
+  }
+.navbar {
+    background-color: rgb(57, 56, 148);
+}
+  .form_title h3{
+    text-align-last: center; 
+    border: 1px solid black;
+    padding: 10pt;
+    background-color: rgb(246, 244, 252);
+  }
+
+  .Vehicle_info{
+    border: 1px solid black;
+    padding: 10pt;
+    background-color: rgb(246, 244, 252);
+  }
+  .form-26-mian {
+    background: url(../images/IMG_2671.jpg) no-repeat 0px 0px;
+    background-size: cover;
+}
+.layer{
+background: url(../images/layer.png) no-repeat 0px 0px;
+background-size: cover;
+min-height: 100vh;
+}
+  
+  

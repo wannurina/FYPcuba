@@ -5,20 +5,26 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Vehicle;
 
-class Staff extends Authenticatable
+class Student extends Authenticatable
 {
+    public function vehicles() {
+        return $this->hasMany(Vehicle::class);
+    }
+    
     use Notifiable;
-
-    protected $guard = 'staff';
     public $timestamps = false;
+
+
+    protected $guard = 'student';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'password', 'StaffNo',
+         'password', 'MatricNo',
     ];
 
     /**
@@ -35,7 +41,4 @@ class Staff extends Authenticatable
      *
      * @var array
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
 }
