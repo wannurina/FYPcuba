@@ -2,93 +2,95 @@
 
 @section('content')
 
-@if(isset($student))
-<section class="form-26">
-    <div class="form-26-mian">
-        <div class="layer">
-            <!-- Student Details -->
-            <div class="container">
-                <h3 class="display-4">Complete your Profile</h3>
+    @if(isset($student))
+
+        <!-- Student Details -->
+        <div class="container">
+            <br><br>
+            <div class="form_title"><h3>Particulars for Student</h3></div>
+
+            <div class="Student_info">
+                <h4>Complete your Profile</h4>
                 <form action="{{route('students.update')}}" method="post">
                     @csrf
                     @method('PATCH')
                     <!-- Name -->
                     <div class="form-group row mt-5">
-                        <label for="Name" class="col-sm-2 col-form-label">Name</label>
+                        <label for="name" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="Name" value="{{$student->Name}}" disabled>
+                            <input type="text" class="form-control" name="name" value="{{$student->name}}" disabled>
                         </div>
                     </div>
 
                     <!-- Matric No & Passport NO/IC-->
                     <div class="form-group row">
-                        <label for="MatricNo" class="col-sm-2 col-form-label">Matric No</label>
+                        <label for="matric_no" class="col-sm-2 col-form-label">Matric No</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" name="MatricNo" value="{{$student->MatricNo}}" disabled>
+                            <input type="text" class="form-control" name="matric_no" value="{{$student->matric_no}}" disabled>
                         </div>
 
-                        <label for="IC" class="col-sm-2 col-form-label">IC/Passport No</label>
+                        <label for="ic_passport" class="col-sm-2 col-form-label">IC/Passport No</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" name="IC_passport" value="{{$student->IC_passport}}" disabled>
+                            <input type="text" class="form-control" name="ic_passport" value="{{$student->ic_passport}}" disabled>
                         </div>
                     </div>
                     <!-- Kuliyyah & Level-->
                     <div class="form-group row">
-                        <label for="Kuliyyah" class="col-sm-2 col-form-label">Kuliyyah</label>
+                        <label for="kuliyyah" class="col-sm-2 col-form-label">Kuliyyah</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" name="Kuliyyah" value="{{$student->Kuliyyah}}" disabled>
+                            <input type="text" class="form-control" name="kuliyyah" value="{{$student->kuliyyah}}" disabled>
                         </div>
 
-                        <label for="Level" class="col-sm-2 col-form-label">Level</label>
+                        <label for="level" class="col-sm-2 col-form-label">Level</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" name="Level" value="{{$student->Level}}" disabled>
+                            <input type="text" class="form-control" name="level" value="{{$student->level}}" disabled>
                         </div>
                     </div>
                     <!-- USER NEED TO INPUT THEIR INFO -->
                     <!-- Address -->
                     <div class="form-group row">
-                        <label for="Address" class="col-sm-2 col-form-label">Address</label>
+                        <label for="address" class="col-sm-2 col-form-label">Address</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="Address" placeholder="Current Address">
+                            <input type="text" class="form-control" name="address" placeholder="Current Address">
                         </div>
                     </div>
                     <!-- Postcode,City,State -->
                     <div class="form-group row">
-                        <label for="Postcode" class="col-sm-2 col-form-label">Postcode</label>
+                        <label for="postcode" class="col-sm-2 col-form-label">Postcode</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" name="Postcode" placeholder="Postcode">
+                            <input type="text" class="form-control" name="postcode" placeholder="postcode">
                         </div>
 
-                        <label for="City" class="col-sm-2 col-form-label">City</label>
+                        <label for="city" class="col-sm-2 col-form-label">City</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" name="City" placeholder="City">
+                            <input type="text" class="form-control" name="city" placeholder="city">
                         </div>
 
-                        <label for="State" class="col-sm-2 col-form-label">State</label>
+                        <label for="state" class="col-sm-2 col-form-label">State</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" name="State" placeholder="State">
+                            <input type="text" class="form-control" name="state" placeholder="state">
                         </div>
                     </div>
                     <!-- Phone No & Email-->
                     <div class="form-group row">
-                        <label for="PhoneNo" class="col-sm-2 col-form-label">Phone No</label>
+                        <label for="phone_no" class="col-sm-2 col-form-label">Phone No</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" name="PhoneNo" placeholder="Phone number">
+                            <input type="text" class="form-control" name="phone_no" placeholder="without (-)">
                         </div>
 
-                        <label for="Email" class="col-sm-2 col-form-label">Email</label>
+                        <label for="email" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" name="Email" placeholder="Email">
+                            <input type="text" class="form-control" name="email" placeholder="email">
                         </div>
                     </div>
 
                     <button type="submit" class="btn btn-info">Update</button>
                 </form>
             </div>
-        </div>   
-    </div>
-</section>
-@else
-NO STUDENT 
-@endif
+        </div>
+        <br>
+                
+    @else
+    NO STUDENT 
+    @endif
 @endsection

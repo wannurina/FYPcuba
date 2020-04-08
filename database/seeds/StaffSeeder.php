@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class VehicleSeeder extends Seeder
+class StaffSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class VehicleSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Vehicle::class, 5)->create(['staff_id'=> 1, 'student_id' => 1, 'contractor_id' => 1]);
+        factory(App\Staff::class, 10)->create();
     }
 }

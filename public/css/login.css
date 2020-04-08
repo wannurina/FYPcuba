@@ -204,8 +204,8 @@ html {
 	  padding-left: 150px; padding-right: 150px;
 	  color: #dfebf5;
 	  }
-	  .form-right-inf input[type="MatricNo"],.form-right-inf input[type="password"]
-	  ,.form-right-inf input[type="StaffNo"] {
+	  .form-right-inf input[type="matric_no"],.form-right-inf input[type="password"]
+	  ,.form-right-inf input[type="staff_no"],.form-right-inf input[type="contractor_no"] {
 	  background-color: #f6f6f6;
 	  border: 1px solid #eee;
 	  border-radius: 3px;

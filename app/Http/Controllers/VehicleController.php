@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use App\Student;
+use App\Staff;
+use App\Contractor;
 use App\Vehicle;
 
 
@@ -17,7 +19,16 @@ class VehicleController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:student');
+        // dd(Auth::guard('contractor')->check());
+
+        // if (Auth::guard('student')->check()) {
+        //     $this->middleware('auth:student');
+        // } elseif (Auth::guard('staff')->check()){
+        //     $this->middleware('auth:staff');
+        // } else {
+        //     $this->middleware('auth:contractor');
+        // }
+
     }
 
     /**
@@ -31,15 +42,31 @@ class VehicleController extends Controller
     }
 
     public function store () {
-        $vehicle = Vehicle::create([
-            'plate_no' => request('plate_no'),
-            'veh_type' => request('veh_type'),
-            'veh_color' => request('veh_color'),
-            'upload_docs' => request('upload_docs'),
-            'student_id'  => Auth::guard('student')->id(),
-        ]);
-            dd($vehicle);
-        return redirect()->back();
+        // dd(request()->all()); //to see what you just input
+        $path = request('upload_docs')->store('uploads');
+        
+        $vehicle = new Vehicle; //instentiate   
+        $vehicle->type = request('type');
+        $vehicle->plate_no = request('plate_no');
+        $vehicle->model = request('model');
+        $vehicle->color = request('color');
+        $vehicle->upload_docs = basename($path);
+        if (Auth::guard('student')->check()) {
+            $vehicle->student_id =  Auth::guard('student')->id();
+        } elseif (Auth::guard('staff')->check()){
+            $vehicle->staff_id =  Auth::guard('staff')->id();
+        } else {
+            $vehicle->contractor_id =  Auth::guard('contractor')->id();
+        }
+        $vehicle->save();
 
+
+        
+        
+
+
+        // $vehicle = Vehicle::create(request()->all()); // mass assignment 
+        // return redirect()->back();
+        return view('vehicles.show', ['vehicle'=> $vehicle])->with('success', 'Vehicle Created Successfully');
     }
 }

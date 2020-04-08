@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'web', //this is osem as admin
         'passwords' => 'users',
     ],
 
@@ -54,6 +54,10 @@ return [
             'driver' => 'session',
             'provider' => 'staffs',
         ],
+        'contractor' => [
+            'driver' => 'session',
+            'provider' => 'contractors',
+        ],
     ],
 
     /*
@@ -85,6 +89,10 @@ return [
         'staffs' => [
             'driver' => 'eloquent',
             'model' => App\Staff::class,
+        ],
+        'contractors' => [
+            'driver' => 'eloquent',
+            'model' => App\Contractor::class,
         ],
 
         // 'users' => [
@@ -123,6 +131,12 @@ return [
         ],
         'staffs' => [
             'provider' => 'staffs',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'contractors' => [
+            'provider' => 'contractors',
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,

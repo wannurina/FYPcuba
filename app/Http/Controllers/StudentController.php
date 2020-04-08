@@ -22,10 +22,10 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($MatricNo)
+    public function create($matric_no)
     {
-        // select * from students where MatricNo = $MatricNo;
-        return view('students.create', ['student' => Student::where('MatricNo', $MatricNo)->first()]);
+        // select * from students where matric_no = $matric_no and find the first matched data
+        return view('students.create', ['student' => Student::where('matric_no', $matric_no)->first()]);
     }
 
     /**
@@ -65,14 +65,14 @@ class StudentController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
-    {
+    {   //not a mass assignment
         $student = Student::find(Auth::guard('student')->id());
-        $student->Address = $request->Address;
-        $student->Postcode = $request->Postcode;
-        $student->City = $request->City;
-        $student->State = $request->State;
-        $student->PhoneNo = $request->PhoneNo;
-        $student->Email = $request->Email;
+        $student->address = $request->address;
+        $student->postcode = $request->postcode;
+        $student->city = $request->city;
+        $student->state = $request->state;
+        $student->phone_no = $request->phone_no;
+        $student->email = $request->email;
         $student->save();
         
             

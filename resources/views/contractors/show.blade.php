@@ -6,14 +6,14 @@
             {{Session::get('success')}}
         </div>
     @endif
-    @if(isset($student))
+    @if(isset($contractor))
     <table class="table">
         <thead>
             <tr>
-                <th>Matric No</th>
+                <th>Contractor No</th>
                 <th>Name</th>
-                <th>Kuliyyah</th>
-                <th>Level</th>
+                <th>IC/Passport No</th>
+                <th>Department</th>
                 <th>Address</th>
                 <th>Postcode</th>
                 <th>City</th>
@@ -25,16 +25,16 @@
 
         <tbody>
             <tr>
-                <td> {{$student->matric_no}} </td>
-                <td> {{$student->name}}</td>
-                <td> {{$student->kuliyyah}}</td>
-                <td> {{$student->level}}</td>
-                <td> {{$student->address}}</td>
-                <td> {{$student->postcode}}</td>
-                <td> {{$student->city}}</td>
-                <td> {{$student->state}}</td>
-                <td> {{$student->phone_no}}</td>
-                <td> {{$student->email}}</td>
+                <td> {{$contractor->contractor_no}} </td>
+                <td> {{$contractor->name}}</td>
+                <td> {{$contractor->ic_passport}}</td>
+                <td> {{$contractor->dept_company}}</td>
+                <td> {{$contractor->address}}</td>
+                <td> {{$contractor->postcode}}</td>
+                <td> {{$contractor->city}}</td>
+                <td> {{$contractor->state}}</td>
+                <td> {{$contractor->phone_no}}</td>
+                <td> {{$contractor->email}}</td>
             </tr>
         </tbody>
     </table>
@@ -42,6 +42,6 @@
     
     <a class="btn btn-info" href="{{route('vehicles.create')}}">Add Vehicle</a>
     @else
-        NO STUDENT DATA
+        NO CONTRACTOR DATA
     @endif
 @endsection

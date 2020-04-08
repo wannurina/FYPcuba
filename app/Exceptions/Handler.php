@@ -4,7 +4,8 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
-
+use Illuminate\Auth\AuthenticationException;
+use Arr;
 class Handler extends ExceptionHandler
 {
     /**
@@ -51,5 +52,32 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
     {
         return parent::render($request, $exception);
+    }
+
+    protected function unauthenticated($request, AuthenticationException $exception){
+        // return $request->expectsJson()
+        //     ? response()->json(['message' => 'Unauthenticated.'], 401)
+        //     : redirect()->guest(route('authentication.index'));
+        if ($request->expectsJson()) {
+            return response()->json(['message' => 'Unauthenticated.'], 401);
+        }
+        $guard = Arr::first($exception->guards());
+
+        switch ($guard) {
+            case 'staff':
+                $login = 'staffs.login_form';
+                break;
+            case 'student':
+                $login = 'students.login_form';
+                break;
+            case 'contractor':
+                $login = 'contractors.login_form';
+                break;
+            default:
+                $login = 'login';
+                break;
+        }
+        
+        return redirect(route($login));
     }
 }

@@ -23,17 +23,17 @@ class StudentLoginController extends Controller
     public function login (Request $request) {
     	request()->validate([
         
-            'MatricNo' => 'required',
+            'matric_no' => 'required',
             'password' => 'required|min:4'
     	]);
     
-        $credentials = request()->only('MatricNo','password');
+        $credentials = request()->only('matric_no','password');
 
         if(Auth::guard('student')->attempt($credentials)){           
-            return redirect()->intended(route('students.create', request('MatricNo') ));
+            return redirect()->intended(route('students.create', request('matric_no') ));
         } 
         else
-            return redirect()->back()->withInput(request()->only('MatricNo'))->with('error', 'Unmatched Credentials');
+            return redirect()->back()->withInput(request()->only('matric_no'))->with('error', 'Unmatched Credentials');
     }
     
 }

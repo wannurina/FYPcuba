@@ -13,24 +13,40 @@
     <link rel="stylesheet" href="{{URL::asset('css/styling.css')}}" type="text/css" media="all" /><!-- Style-CSS -->
 </head>
 <body>
+<section class="form-26">
     <nav class="navbar navbar-expand-md navbar-dark">
         <a class="navbar-brand" href="/">IIUM Vehicle Registration System</a>
-        <div class="collapse navbar-collapse" id="logout_btn">
-            <ul class="navbar-nav">
-            <li class="nav-item">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav" >
+                <li class="nav-item" style="">
+                    <a class="dropdown-item" href="{{ route('logout') }}" style=""
+                    onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();" >
+                        {{ __('Logout') }}
+                    </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-            </li>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">
+                        @csrf
+                    </form>
+                </li>
+            </ul>    
         </div>  
     </nav>
-      @yield('content')
+    <div class="form-26-mian">
+        <div class="layer">   
+            
+            @yield('content')
+        
+        
+        </div>  
+    </div>
+    <nav class="navbar navbar-expand-sm navbar-dark bottom justify-content-center" 
+        style="background-color:rgb(91, 90, 156);">
+        <div class="copyright text-center">
+            <p>© <?php echo date("Y");?> All rights reserved | Designed by Zu and Ina</p>
+        </div>
+    </nav>
+</section>
 </body>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>

@@ -4,17 +4,31 @@ body {
 .navbar {
     background-color: rgb(57, 56, 148);
 }
+/* .navbar nav_bottom {
+  background-color: rgb(91, 90, 156);
+} */
+  .nav-item{
+    border: 2px solid grey;border-radius: 4px;
+  }
+  .nav-item:hover{
+    background-color: white;
+    color:black;
+  }
+  .nav-item a{
+    color:white;
+  }
   .form_title h3{
     text-align-last: center; 
     border: 1px solid black;
     padding: 10pt;
-    background-color: rgb(246, 244, 252);
+    background-color: rgb(173, 209, 223); /*246, 244, 252*/
   }
 
-  .Vehicle_info{
+  .Vehicle_info, .Student_info, 
+  .Staff_info, .Contractor_info{
     border: 1px solid black;
     padding: 10pt;
-    background-color: rgb(246, 244, 252);
+    background-color: rgb(173, 209, 223);
   }
   .form-26-mian {
     background: url(../images/IMG_2671.jpg) no-repeat 0px 0px;
@@ -25,5 +39,15 @@ background: url(../images/layer.png) no-repeat 0px 0px;
 background-size: cover;
 min-height: 100vh;
 }
+.copyright p {
+  
+  color: #ffffffd6;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 17px;
+  line-height: 10px;
+  margin-top: 10px;
+  
+  }
   
   

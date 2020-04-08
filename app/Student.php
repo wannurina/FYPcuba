@@ -9,22 +9,21 @@ use App\Vehicle;
 
 class Student extends Authenticatable
 {
+    public $timestamps = false;
+    use Notifiable;
+    protected $guard = 'student';
+    
     public function vehicles() {
         return $this->hasMany(Vehicle::class);
     }
     
-    use Notifiable;
-    public $timestamps = false;
-
-
-    protected $guard = 'student';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-         'password', 'MatricNo',
+         'password', 'matric_no',
     ];
 
     /**
