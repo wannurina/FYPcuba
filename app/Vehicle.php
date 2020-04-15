@@ -14,6 +14,7 @@ class Vehicle extends Model
 
     public function student(){
         return $this->belongsTo(Student::class);
+        // return $this->belongsTo('App\Student');
     }
 
     public function staff(){

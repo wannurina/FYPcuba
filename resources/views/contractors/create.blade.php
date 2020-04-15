@@ -83,8 +83,8 @@
                 <button type="submit" class="btn btn-info">Update</button>
             </form>
         </div>
-        <br>
-                
+    </div>
+    <br>            
 @else
 NO CONTRACTOR
 @endif

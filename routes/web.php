@@ -34,14 +34,12 @@ Route::patch('staffs/update', 'StaffController@update')->name('staffs.update');
 //contractor punya
 Route::get('contractors/login_form', 'ContractorLoginController@login_form')->name('contractors.login_form');    
 Route::post('contractors/login', 'ContractorLoginController@login')->name('contractors.login');
-Route::get('contractors/create', 'ContractorController@create')->name('contractors.create');
+Route::get('contractors/create/{contractor_no}', 'ContractorController@create')->name('contractors.create');
 Route::patch('contractors/update', 'ContractorController@update')->name('contractors.update');
      
 
 
 //vehicle punya
-// Route::group(['middleware' => ['auth.student', 'auth.staff', 'auth.contractor']], function(){
-    Route::get('vehicles/create', 'VehicleController@create')->name('vehicles.create');
-    Route::post('vehicles/store', 'VehicleController@store')->name('vehicles.store');
-    Route::get('vehicles/show', 'VehicleController@show')->name('vehicles.show');
-// });
+Route::get('vehicles/create', 'VehicleController@create')->name('vehicles.create');
+Route::post('vehicles/store', 'VehicleController@store')->name('vehicles.store');
+Route::get('vehicles/show', 'VehicleController@show')->name('vehicles.show');

@@ -14,7 +14,8 @@ class Student extends Authenticatable
     protected $guard = 'student';
     
     public function vehicles() {
-        return $this->hasMany(Vehicle::class);
+        return $this->hasOne(Vehicle::class);
+        // return $this->hasOne('App\Vehicle');
     }
     
     /**

@@ -16,7 +16,11 @@
                         <label for="type" class="col-sm-2 col-form-label" name="type">Vehicle Type</label>
                         <div class="col-sm-4">
                             <div class="custom-control custom-radio custom-control-inline">
+                                @if($student_level != 4)
+                                <input type="radio" id="car" name="type" class="custom-control-input" value="car" disabled>
+                                @else
                                 <input type="radio" id="car" name="type" class="custom-control-input" value="car">
+                                @endif
                                 <label class="custom-control-label" for="car">Car</label>
                             </div>
                             <div class="custom-control custom-radio custom-control-inline">

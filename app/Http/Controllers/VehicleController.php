@@ -19,16 +19,7 @@ class VehicleController extends Controller
      */
     public function __construct()
     {
-        // dd(Auth::guard('contractor')->check());
-
-        // if (Auth::guard('student')->check()) {
-        //     $this->middleware('auth:student');
-        // } elseif (Auth::guard('staff')->check()){
-        //     $this->middleware('auth:staff');
-        // } else {
-        //     $this->middleware('auth:contractor');
-        // }
-
+        // 
     }
 
     /**
@@ -37,8 +28,11 @@ class VehicleController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function create()
-    {
-        return view('vehicles.create');
+    {   if (Auth::guard('student')->check()) {
+        return view('vehicles.create', ['student_level' => request('student_level')]);
+        } else{
+            return view('vehicles.create_staff_contractor');
+        }
     }
 
     public function store () {

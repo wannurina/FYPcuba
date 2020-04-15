@@ -24,7 +24,7 @@ class StaffController extends Controller
      */
     public function create($staff_no)
     {
-        // select * from students where matric_no = $staff_no and find the first matched data
+        // select * from staffs where staff_no = $staff_no and find the first matched data
         return view('staffs.create', ['staff' => Staff::where('staff_no', $staff_no)->first()]);
     }
 

@@ -24,8 +24,8 @@ class ContractorController extends Controller
      */
     public function create($contractor_no)
     {
-        // select * from students where matric_no = $contractor_no and find the first matched data
-        return view('contractors.create', ['contractors' => Contractor::where('contractor_no', $contractor_no)->first()]);
+        // select * from staffs where staff_no = $contractor_no and find the first matched data
+        return view('contractors.create', ['contractor' => Contractor::where('contractor_no', $contractor_no)->first()]);
     }
 
     /**
@@ -67,18 +67,18 @@ class ContractorController extends Controller
      */
     public function update(Request $request)
     {   //not a mass assignment
-        $contractors = Contractor::find(Auth::guard('contractors')->id());
-        $contractors->address = $request->address;
-        $contractors->postcode = $request->postcode;
-        $contractors->city = $request->city;
-        $contractors->state = $request->state;
-        $contractors->phone_no = $request->phone_no;
-        $contractors->email = $request->email;
-        $contractors->save();
+        $contractor = Contractor::find(Auth::guard('contractor')->id());
+        $contractor->address = $request->address;
+        $contractor->postcode = $request->postcode;
+        $contractor->city = $request->city;
+        $contractor->state = $request->state;
+        $contractor->phone_no = $request->phone_no;
+        $contractor->email = $request->email;
+        $contractor->save();
         
             
-        return view('contractors.show')->with('success', 'Pofile updated successfully')
-                                                ->with('contractors', $contractors);
+        return view('contractors.show')->with('success', 'Profile updated successfully')
+                                                ->with('contractor', $contractor);
     }
 
     /**

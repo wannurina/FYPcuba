@@ -30,6 +30,14 @@ body {
     padding: 10pt;
     background-color: rgb(173, 209, 223);
   }
+  
+  .Vehicle_info_form{
+    margin: 10px -100px; 
+    position:relative;  
+    /* top:50%;  */
+    left:30%;
+  }
+
   .form-26-mian {
     background: url(../images/IMG_2671.jpg) no-repeat 0px 0px;
     background-size: cover;
@@ -49,5 +57,14 @@ min-height: 100vh;
   margin-top: 10px;
   
   }
+
+.btn {
+    height:50px; 
+    width:200px; 
+    margin: 10px -100px; 
+    position:relative;
+    top:50%; 
+    left:50%;
+}
   
   
