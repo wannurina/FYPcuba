@@ -58,7 +58,7 @@
                         <a class="btn btn-info" href="{{route('vehicles.create')}}">Add Vehicle</a>
                         </div>
                         <div class="col-md-3">
-                        <a class="btn btn-info" href="#">Proceed to Payment</a> </div>
+                        <a class="btn btn-info" href="{{route('payments.show')}}">Proceed to Payment</a> </div>
                     </div>
                 </div>
                 <br></br>

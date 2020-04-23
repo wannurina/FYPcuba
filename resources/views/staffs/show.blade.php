@@ -50,36 +50,72 @@
                 <div class="form-group row">
                     <label for="address" class="col-sm-2 col-form-label">Address</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="address" value="{{$staff->address}}">
+                        <input type="text" class="form-control @error('address') is-danger @enderror" 
+                        name="address" placeholder="Current Address"
+                        value="{{$staff->address }}" required autocomplete="address">
+
+                        @error('address')
+                        <p class="help is-danger">{{$errors->first('address')}}</p>
+                        @enderror
                     </div>
                 </div>
                 <!-- Postcode,City,State -->
                 <div class="form-group row">
                     <label for="postcode" class="col-sm-2 col-form-label">Postcode</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" name="postcode" value="{{$staff->postcode}}">
+                        <input type="text" class="form-control @error('postcode') is-danger @enderror" 
+                        name="postcode" placeholder="postcode" 
+                        value="{{$staff->postcode}}" required autocomplete="postcode">
+                            
+                        @error('postcode')
+                        <p class="help is-danger">{{$errors->first('postcode')}}</p>
+                        @enderror
                     </div>
 
                     <label for="city" class="col-sm-2 col-form-label">City</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" name="city" value="{{$staff->city}}">
+                        <input type="text" class="form-control @error('city') is-danger @enderror" 
+                        name="city" placeholder="city" 
+                        value="{{$staff->city}}" required autocomplete="city">
+
+                        @error('city')
+                        <p class="help is-danger">{{$errors->first('city')}}</p>
+                        @enderror
                     </div>
 
                     <label for="state" class="col-sm-2 col-form-label">State</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" name="state" value="{{$staff->state}}">
+                        <input type="text" class="form-control @error('state') is-danger @enderror" 
+                        name="state" placeholder="state" 
+                        value="{{$staff->state}}" required autocomplete="state">
+
+                        @error('state')
+                        <p class="help is-danger">{{$errors->first('state')}}</p>
+                        @enderror
                     </div>
                 </div>
                 <!-- Phone No & Email-->
                 <div class="form-group row">
                     <label for="phone_no" class="col-sm-2 col-form-label">Phone No</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="phone_no" value="{{$staff->phone_no}}">
+                        <input type="text" class="form-control @error('phone_no') is-danger @enderror" 
+                        name="phone_no" placeholder="without (-)" 
+                        value="{{$staff->phone_no}}" required autocomplete="phone_no">
+
+                        @error('phone_no')
+                        <p class="help is-danger">{{$errors->first('phone_no')}}</p>
+                        @enderror
                     </div>
 
                     <label for="email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="email" value="{{$staff->email}}">
+                        <input type="text" class="form-control @error('email') is-danger @enderror" 
+                        name="email" placeholder="email" 
+                        value="{{$staff->email}}" required autocomplete="email">
+
+                        @error('email')
+                        <p class="help is-danger">{{$errors->first('email')}}</p>
+                        @enderror
                     </div>
                 </div>
 

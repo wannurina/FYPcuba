@@ -27,7 +27,10 @@
                                             <label for="matric_no" class="col-md-4 col-form-label text-md-right">{{ __('Matric No') }}</label>
 
                                             <div class="col-md-6">
-                                                <input id="matric_no" type="matric_no" class="form-control @error('matric_no') is-invalid @enderror" name="matric_no" value="{{ old('matric_no') }}" required autocomplete="matric_no" autofocus>
+                                                <input id="matric_no" type="matric_no" 
+                                                class="form-control @error('matric_no') is-invalid @enderror" 
+                                                name="matric_no" value="{{ old('matric_no') }}" 
+                                                required autocomplete="matric_no" autofocus>
 
                                                 @error('matric_no')
                                                     <span class="invalid-feedback" role="alert">

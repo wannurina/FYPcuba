@@ -43,3 +43,6 @@ Route::patch('contractors/update', 'ContractorController@update')->name('contrac
 Route::get('vehicles/create', 'VehicleController@create')->name('vehicles.create');
 Route::post('vehicles/store', 'VehicleController@store')->name('vehicles.store');
 Route::get('vehicles/show', 'VehicleController@show')->name('vehicles.show');
+
+//payment
+Route::get('payments/show', 'PaymentController@show')->name('payments.show');

@@ -23,6 +23,13 @@ body {
     padding: 10pt;
     background-color: rgb(173, 209, 223); /*246, 244, 252*/
   }
+  .form_title_payment, .Payment_info{
+    text-align-last: center; 
+    border: 1px solid black;
+    margin: 10px 200px;
+    padding: 10pt;
+    background-color: rgb(173, 209, 223); /*246, 244, 252*/
+  }
 
   .Vehicle_info, .Student_info, 
   .Staff_info, .Contractor_info{

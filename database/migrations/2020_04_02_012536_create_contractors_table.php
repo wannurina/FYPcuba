@@ -26,7 +26,7 @@ class CreateContractorsTable extends Migration
             $table->string('state');
             $table->string('phone_no');
             $table->string('email');
-            $table->timestamps();
+            
         });
     }
 

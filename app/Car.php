@@ -3,11 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Student;
-use App\Staff;
-use App\Contractor;
 
-class Vehicle extends Model
+class Car extends Model
 {
     public $timestamps = false;
     protected $guarded=[];
@@ -23,6 +20,4 @@ class Vehicle extends Model
     public function contractor(){
         return $this->belongsTo(Contractor::class);
     }
-
-
 }

@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Vehicle;
+use App\Payment;
 
 class Staff extends Authenticatable
 {
@@ -18,6 +19,9 @@ class Staff extends Authenticatable
 
     public function vehicles() {
         return $this->hasMany(Vehicle::class);
+    }
+    public function payment(){
+        return $this->hasOne(Payment::class);
     }
 
     /**

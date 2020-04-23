@@ -50,36 +50,72 @@
                 <div class="form-group row">
                     <label for="address" class="col-sm-2 col-form-label">Address</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="address" value="{{$contractor->address}}">
+                        <input type="text" class="form-control @error('address') is-danger @enderror" 
+                        name="address" placeholder="Current Address"
+                        value="{{$contractor->address }}" required autocomplete="address">
+
+                        @error('address')
+                        <p class="help is-danger">{{$errors->first('address')}}</p>
+                        @enderror
                     </div>
                 </div>
                 <!-- Postcode,City,State -->
                 <div class="form-group row">
                     <label for="postcode" class="col-sm-2 col-form-label">Postcode</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" name="postcode" value="{{$contractor->postcode}}">
+                        <input type="text" class="form-control @error('postcode') is-danger @enderror" 
+                        name="postcode" placeholder="postcode" 
+                        value="{{$contractor->postcode}}" required autocomplete="postcode">
+                            
+                        @error('postcode')
+                        <p class="help is-danger">{{$errors->first('postcode')}}</p>
+                        @enderror
                     </div>
 
                     <label for="city" class="col-sm-2 col-form-label">City</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" name="city" value="{{$contractor->city}}">
+                        <input type="text" class="form-control @error('city') is-danger @enderror" 
+                        name="city" placeholder="city" 
+                        value="{{$contractor->city}}" required autocomplete="city">
+
+                        @error('city')
+                        <p class="help is-danger">{{$errors->first('city')}}</p>
+                        @enderror
                     </div>
 
                     <label for="state" class="col-sm-2 col-form-label">State</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" name="state" value="{{$contractor->state}}">
+                        <input type="text" class="form-control @error('state') is-danger @enderror" 
+                        name="state" placeholder="state" 
+                        value="{{$contractor->state}}" required autocomplete="state">
+
+                        @error('state')
+                        <p class="help is-danger">{{$errors->first('state')}}</p>
+                        @enderror
                     </div>
                 </div>
                 <!-- Phone No & Email-->
                 <div class="form-group row">
                     <label for="phone_no" class="col-sm-2 col-form-label">Phone No</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="phone_no" value="{{$contractor->phone_no}}">
+                        <input type="text" class="form-control @error('phone_no') is-danger @enderror" 
+                        name="phone_no" placeholder="without (-)" 
+                        value="{{$contractor->phone_no}}" required autocomplete="phone_no">
+
+                        @error('phone_no')
+                        <p class="help is-danger">{{$errors->first('phone_no')}}</p>
+                        @enderror
                     </div>
 
                     <label for="email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="email" value="{{$contractor->email}}">
+                        <input type="text" class="form-control @error('email') is-danger @enderror" 
+                        name="email" placeholder="email" 
+                        value="{{$contractor->email}}" required autocomplete="email">
+
+                        @error('email')
+                        <p class="help is-danger">{{$errors->first('email')}}</p>
+                        @enderror
                     </div>
                 </div>
 
@@ -87,7 +123,7 @@
                 
             </form>
             <form action="{{route('vehicles.create')}}" method="get">
-                
+                <input type="hidden" name="dept_company" value="{{$contractor->dept_company}}">
                 <button class="btn btn-info" type="submit">Add Vehicle</button>
             </form>
         </div>

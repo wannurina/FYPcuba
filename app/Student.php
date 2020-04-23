@@ -6,6 +6,9 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Vehicle;
+use App\Car;
+use App\Motorcycle;
+use App\Payment;
 
 class Student extends Authenticatable
 {
@@ -14,8 +17,16 @@ class Student extends Authenticatable
     protected $guard = 'student';
     
     public function vehicles() {
-        return $this->hasOne(Vehicle::class);
-        // return $this->hasOne('App\Vehicle');
+        return $this->hasMany(Vehicle::class);
+    }
+    public function cars() {
+        return $this->hasOne(Car::class);
+    }
+    public function motorcycles() {
+        return $this->hasOne(Motorcycle::class);
+    }
+    public function payment(){
+        return $this->hasOne(Payment::class);
     }
     
     /**

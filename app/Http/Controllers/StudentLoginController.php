@@ -21,7 +21,7 @@ class StudentLoginController extends Controller
     } 
 
     public function login (Request $request) {
-    	request()->validate([
+    	request()->validate([ //form validation essential
         
             'matric_no' => 'required',
             'password' => 'required|min:4'

@@ -7,7 +7,7 @@ use App\Student;
 use App\Staff;
 use App\Contractor;
 
-class Vehicle extends Model
+class Payment extends Model
 {
     public $timestamps = false;
     protected $guarded=[];
