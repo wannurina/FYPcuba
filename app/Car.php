@@ -3,11 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Student;
+use App\Staff;
+use App\Contractor;
 
 class Car extends Model
 {
     public $timestamps = false;
     protected $guarded=[];
+    protected $fillable = [
+        'plate_no','model','color','upload_docs',
+   ];
 
     public function student(){
         return $this->belongsTo(Student::class);

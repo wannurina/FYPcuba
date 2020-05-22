@@ -3,61 +3,67 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\Student;
+use App\Staff;
+use App\Contractor;
+use App\Payment;
+
 
 class PaymentController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Create a new controller instance.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function index()
+    public function __construct()
     {
-        //
+        // 
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the application dashboard.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Support\Renderable
      */
     public function create()
-    {
-        //
+    {   if (Auth::guard('student')->check()) {
+            return view('payments.create', ['student_level' => request('student_level')]);
+        } if (Auth::guard('staff')->check()){
+            return view('payments.create', ['dept_company' => request('staff_dept')]);
+        }else{
+            return view('payments.create', ['dept_company' => request('dept_company')]);
+        }
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
+    public function store () {
+        // dd(request()->all()); //to see what you just input
+        $path = request('upload_receipt')->store('uploads');
         //
+        $payment = new Payment; //instentiate   
+        $payment->amount = request('amount');
+        $payment->created_at = now();
+        $payment->upload_receipt = basename($path);
+        if (Auth::guard('student')->check()) {
+            $payment->student_id =  Auth::guard('student')->id();
+        } elseif (Auth::guard('staff')->check()){
+            $payment->staff_id =  Auth::guard('staff')->id();
+        } else {
+            $payment->contractor_id =  Auth::guard('contractor')->id();
+        }
+        $payment->save();
+
+
+        
+        
+
+
+        // $payment= Payment::create(request()->all()); // mass assignment 
+        // return redirect()->back();
+        return view('payments.show', ['payment'=> $payment])->with('success', 'Payment Successfull');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show()
-    {   $sticker_price = 3;
-        return view('payments.show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -66,19 +72,14 @@ class PaymentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function update(Request $request)
+    {   //not a mass assignment
+        $payment = Payment::find(Auth::guard('payment')->id());
+        
+        $payment->save();
+        
+            
+        return view('payments.show')->with('success', 'Transaction ID updated successfully')
+                                                ->with('payment', $payment);
     }
 }

@@ -11,9 +11,9 @@
         content="Merged Forms Page Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <!-- //Meta tag Keywords -->
     <link rel="stylesheet" href="{{URL::asset('css/styling.css')}}" type="text/css" media="all" /><!-- Style-CSS -->
-    <link rel="stylesheet" href="{{URL::asset('css/payment.css')}}" type="text/css" media="all" /><!-- Style-CSS -->
 </head>
 <body>
+
 <section class="form-26">
     <nav class="navbar navbar-expand-md navbar-dark">
         <a class="navbar-brand" href="/">IIUM Vehicle Registration System</a>
@@ -33,6 +33,7 @@
             </ul>    
         </div>  
     </nav>
+        
     <div class="form-26-mian">
         <div class="layer">   
             

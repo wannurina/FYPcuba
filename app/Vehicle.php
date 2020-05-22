@@ -11,6 +11,9 @@ class Vehicle extends Model
 {
     public $timestamps = false;
     protected $guarded=[];
+    protected $fillable = [
+        'type', 'plate_no','model','color','upload_docs',
+   ];
 
     public function student(){
         return $this->belongsTo(Student::class);

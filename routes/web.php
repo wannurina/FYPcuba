@@ -45,4 +45,13 @@ Route::post('vehicles/store', 'VehicleController@store')->name('vehicles.store')
 Route::get('vehicles/show', 'VehicleController@show')->name('vehicles.show');
 
 //payment
-Route::get('payments/show', 'PaymentController@show')->name('payments.show');
+Route::get('payments/create', 'PaymentController@create')->name('payments.create');
+Route::post('payments/store', 'PaymentController@store')->name('payments.store');
+Route::post('payments/show', 'PaymentController@show')->name('payments.show');
+Route::patch('payments/update', 'PaymentController@update')->name('payments.update');
+
+
+//osem
+Route::get('/osem', function () {
+    return view('auth.login');
+});
