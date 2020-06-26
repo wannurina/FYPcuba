@@ -48,6 +48,7 @@ body {
   .form-26-mian {
     background: url(../images/IMG_2671.jpg) no-repeat 0px 0px;
     background-size: cover;
+    
 }
 .layer{
 background: url(../images/layer.png) no-repeat 0px 0px;
@@ -73,5 +74,50 @@ min-height: 100vh;
     top:50%; 
     left:50%;
 }
+
+.progress_bar {
+  counter-reset: step;
+}
+.progress_bar li{ /*for the steps*/
+  list-style-type: none;
+  float: left;
+  width: 25%;
+  position: relative;
+  text-align: center;
+  z-index: 1;
+}
+.progress_bar li:before { /*for the circle progress symbol*/
+  content: counter(step); /*a function called counter*/
+  counter-increment: step;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border: 2px solid gray;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 10px auto;
+  background-color: gray;
   
-  
+}
+.progress_bar li:after {/*the line across the circle progress / connector */
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color:gray;
+  top: 20px; /*half of the li:before height*/
+  left: -50%;
+  z-index: -1;
+}
+.progress_bar li:first-child:after { /*connector starts after the first circle*/
+  content: none;
+}
+.progress_bar li.active{
+  color: white;
+}
+.progress_bar li.active:before{
+  border-color: white;
+}  
+/* .progress_bar li.active + li:after{
+  background-color: white;
+}   */

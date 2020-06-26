@@ -36,6 +36,34 @@ html {
 	margin-right: auto;
 	margin-left: auto;
   }
+  .instructions h4 { /*untuk instructions di login page*/
+	font-size: 30px;
+	line-height: 60px;
+	margin-top: 20px;
+	color: #ffff;
+	font-weight: 600;
+}
+.steps{
+	color: #f5f1f1;
+	/* width: 80%; */
+	text-align: left;
+}
+  /* untuk login punya table*/ 
+  table, td, th  {  
+    border: 1px solid #ddd;
+    text-align: left;
+    color: #f5f1f1;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 15px;
+    }
+  /**/
   
   @media (min-width: 576px) {
 	.wrapper {

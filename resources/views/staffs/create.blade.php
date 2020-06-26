@@ -4,9 +4,20 @@
 
 @if(isset($staff))
 
-    <!-- Staff Details -->
     <div class="container">
-        <br><br>
+            <br><br>
+            <!-- progress bar -->
+            <div class="container">
+                <ul class="progress_bar">
+                    <li class="active">Profile</li>
+                    <li>Vehicle Information</li>
+                    <li>Payment</li>
+                    <li>Confirmation</li>
+                </ul>
+            </div>
+            <br><br><br><br>
+            
+        <!-- Staff Details -->
         <div class="form_title"><h3>Particulars for Staff</h3></div>
 
         <div class="Staff_info">

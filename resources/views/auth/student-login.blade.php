@@ -68,6 +68,33 @@
                                     <h6 class="already editContent" data-selector=".editContent" style="outline: none; cursor: inherit;"><a href="{{ url('/') }}"> Not a student?</a></h6>
                                 </form>
                             </div>
+                            <br><br>
+                            <table>
+                                <tr>
+                                    <th>Vehicle Type</th><th>Eligibility</th><th>Price per sticker</th><th>Validity Period</th>
+                                </tr>
+                                <tr>
+                                    <td>Motorcycle</td><td>All IIUM Registered Students</td><td>RM3.00</td>
+                                    <td rowspan="3">1 year (Semester 1-Semester 3 for each session)</td>
+                                </tr>
+                                <tr>
+                                    <td>Car</td><td>Final Year Student and Post-Graduate Student</td><td>RM3.00</td>
+                                </tr>
+                                
+                            </table>
+
+                            <div class="instructions">
+                                <h4>How to Apply for Vehicle Stickers</h4>
+                                <ol class="steps">
+                                    <li>Fill in all the necessary information in Personal Information section and
+                                        Vehicle Information section
+                                    </li>
+                                    <li>Choose your Payment method</li>
+                                    <li>Wait for the Confirmation Status to receive the Number</li>
+                                    <li>Get your vehicle sticker at OSEM office</li>
+                                    
+                                </ol>
+                            </div>
 
                     </div>
                     <div class="copyright text-center">

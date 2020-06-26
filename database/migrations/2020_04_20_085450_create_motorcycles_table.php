@@ -16,10 +16,10 @@ class CreateMotorcyclesTable extends Migration
         Schema::create('motorcycles', function (Blueprint $table) {
             $table->id();           
             $table->string('plate_no');
-            // $table->string('type');
             $table->string('model');
             $table->string('color');
-            $table->string('upload_docs'); 
+            $table->string('upload_license');
+            $table->string('upload_roadtax');   
             $table->unsignedBigInteger('student_id')->nullable();
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->unsignedBigInteger('staff_id')->nullable();

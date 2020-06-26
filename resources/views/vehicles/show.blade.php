@@ -1,3 +1,12 @@
+
+
+
+<!-- dah tak guna , just for reference-->
+
+
+
+
+
 @extends('layouts.app2')
 @section('content')
 
@@ -8,7 +17,17 @@
     @endif
     @if(isset($vehicle))
     <div class="container">
-        <br></br>
+            <br><br>
+            <!-- progress bar -->
+            <div class="container">
+                <ul class="progress_bar">
+                    <li>Profile</li>
+                    <li class="active">Vehicle Information</li>
+                    <li>Payment</li>
+                    <li>Confirmation</li>
+                </ul>
+            </div>
+            <br><br><br><br>
                 
         <!-- Vehicle Details -->
         <div class="container">

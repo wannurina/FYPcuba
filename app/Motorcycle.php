@@ -12,7 +12,7 @@ class Motorcycle extends Model
     public $timestamps = false;
     protected $guarded=[];
     protected $fillable = [
-        'plate_no','model','color','upload_docs',
+        'plate_no','model','color','upload_license','upload_roadtax',
    ];
 
     public function student(){

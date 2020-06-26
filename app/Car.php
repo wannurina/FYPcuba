@@ -12,7 +12,7 @@ class Car extends Model
     public $timestamps = false;
     protected $guarded=[];
     protected $fillable = [
-        'plate_no','model','color','upload_docs',
+        'plate_no','model','color','upload_id_card','upload_license','upload_roadtax',
    ];
 
     public function student(){

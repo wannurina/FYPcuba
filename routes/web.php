@@ -37,12 +37,12 @@ Route::post('contractors/login', 'ContractorLoginController@login')->name('contr
 Route::get('contractors/create/{contractor_no}', 'ContractorController@create')->name('contractors.create');
 Route::patch('contractors/update', 'ContractorController@update')->name('contractors.update');
      
-
-
 //vehicle punya
 Route::get('vehicles/create', 'VehicleController@create')->name('vehicles.create');
 Route::post('vehicles/store', 'VehicleController@store')->name('vehicles.store');
 Route::get('vehicles/show', 'VehicleController@show')->name('vehicles.show');
+
+
 
 //payment
 Route::get('payments/create', 'PaymentController@create')->name('payments.create');

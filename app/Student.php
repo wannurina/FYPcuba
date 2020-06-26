@@ -5,7 +5,6 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Vehicle;
 use App\Car;
 use App\Motorcycle;
 use App\Payment;
@@ -16,13 +15,10 @@ class Student extends Authenticatable
     use Notifiable;
     protected $guard = 'student';
     
-    public function vehicles() {
-        return $this->hasMany(Vehicle::class);
-    }
-    public function cars() {
+    public function car() {
         return $this->hasOne(Car::class);
     }
-    public function motorcycles() {
+    public function motorcycle() {
         return $this->hasOne(Motorcycle::class);
     }
     public function payment(){

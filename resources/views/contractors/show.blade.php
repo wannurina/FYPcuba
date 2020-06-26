@@ -10,6 +10,16 @@
     <!-- contractor Details -->
     <div class="container">
         <br><br>
+            <!-- progress bar -->
+            <div class="container">
+                <ul class="progress_bar">
+                    <li class="active">Profile</li>
+                    <li>Vehicle Information</li>
+                    <li>Payment</li>
+                    <li>Confirmation</li>
+                </ul>
+            </div>
+            <br><br><br><br>
         <div class="form_title"><h3>Particulars for Contractor</h3></div>
 
         <div class="Contractor_info">
@@ -123,6 +133,7 @@
                 
             </form>
             <form action="{{route('vehicles.create')}}" method="get">
+                {{Session::put('dept_company', $contractor->dept_company)}}
                 <input type="hidden" name="dept_company" value="{{$contractor->dept_company}}">
                 <button class="btn btn-info" type="submit">Add Vehicle</button>
             </form>

@@ -9,7 +9,17 @@
     @if(isset($staff))
     <!-- Staff Details -->
     <div class="container">
-        <br><br>
+            <br><br>
+            <!-- progress bar -->
+            <div class="container">
+                <ul class="progress_bar">
+                    <li class="active">Profile</li>
+                    <li><button>Vehicle Information</button></li>
+                    <li>Payment</li>
+                    <li>Confirmation</li>
+                </ul>
+            </div>
+            <br><br><br><br>
         <div class="form_title"><h3>Particulars for Staff</h3></div>
 
         <div class="Staff_info">
@@ -123,6 +133,7 @@
                 
             </form>
             <form action="{{route('vehicles.create')}}" method="get">
+                {{Session::put('staff_dept' , $staff->dept)}}
                 <input type="hidden" name="staff_dept" value="{{$staff->dept}}">
                 <button class="btn btn-info" type="submit">Add Vehicle</button>
             </form>

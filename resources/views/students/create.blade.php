@@ -3,10 +3,21 @@
 @section('content')
 
     @if(isset($student))
-
-        <!-- Student Details -->
+        
+        
         <div class="container">
+            <!-- progress bar -->
             <br><br>
+            <div class="container">
+                <ul class="progress_bar">
+                    <li class="active">Profile</li>
+                    <li>Vehicle Information</li>
+                    <li>Payment</li>
+                    <li>Confirmation</li>
+                </ul>
+            </div>
+            <br><br><br><br>
+            <!-- Student Details -->
             <div class="form_title"><h3>Particulars for Student</h3></div>
 
             <div class="Student_info">
