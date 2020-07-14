@@ -9,7 +9,7 @@ use App\Contractor;
 use DB;
 use App\Admin;
 
-class Payment extends Model
+class Debit extends Model
 {
     public $timestamps = false;
     protected $guarded=[];

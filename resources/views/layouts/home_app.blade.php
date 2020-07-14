@@ -36,10 +36,19 @@
         </nav>
         <div class="form-26-mian">
             <div class="layer">   
+                <div id="mySidenav" class="sidenav" style="margin-top:60px;">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="#" >Profile</a>
+                    <a href="{{route('vehicles.create')}}">Vehicle</a>
+                    <a href="#">Status</a>
+                    <!-- <a href="#">Contact</a> -->
+                </div>
+
                 
+                <span style="font-size:20px;cursor:pointer;margin:50px;margin-bottom:110px;color:white;" 
+                onclick="openNav()">&#9776; Menu</span>
                 @yield('content')
-            
-            
+
             </div>  
         </div>
         <nav class="navbar navbar-expand-sm navbar-dark bottom justify-content-center" 
@@ -49,10 +58,22 @@
             </div>
         </nav>
     </section>
+
     @include('sweetalert::alert')
+    <!-- script for side navbar Menu -->
+    <script>
+        function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        }
+
+        function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
 </body>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
 
 </html>

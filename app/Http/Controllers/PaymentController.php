@@ -55,10 +55,6 @@ class PaymentController extends Controller
         $payment->save();
 
 
-        
-        
-
-
         // $payment= Payment::create(request()->all()); // mass assignment 
         // return redirect()->back();
         return view('payments.show', ['payment'=> $payment])->with('success', 'Payment Successfull');

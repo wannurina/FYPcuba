@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use RealRashid\SweetAlert\Facades\Alert;
 
 use Illuminate\Http\Request;
 use Auth;
@@ -29,9 +30,11 @@ class VehicleController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function create()
-    {   if (Auth::guard('student')->check()) {
+    public function create(){   
+        if (Auth::guard('student')->check()) {
+            Alert::info('Info', 'Students are only allowed to register for 1 Car or 1 Motorcycle');
             return view('vehicles.create', ['student_level' => request('student_level')]);
+            
         } if (Auth::guard('staff')->check()){
             return view('vehicles.create', ['dept_company' => request('staff_dept')]);
         }else{
@@ -41,33 +44,39 @@ class VehicleController extends Controller
 
     public function store (Request $request) {
 
-        if (Auth::guard('student')->check()) {
-             if($request->type =='car'){
+        if (Auth::guard('student')->check()) { //student
+             if($request->type =='car'){ //student request for car
                 $exist = Car::where('student_id',Auth::guard('student')->id())->exists();
                 if($exist == true){
-                    return view('vehicles.registered');
+                    Alert::error('Oopss', 'You have reached your registration limit. Please proceed to payment');
+                    return view('vehicles.limit_regist');
                 } else {
                     $car = $this->store_car(Auth::guard('student')->id(), $staff = false, $student = true);
+                    Alert::success('Vehicle Registration', 'Your Vehicle is Registered');
                     return view('vehicles.show_car', ['car'=> $car])->with('success', 'Vehicle Created Successfully');
-
                 }
 
-             } else {
+             } else { //student request for motorcycle
                  $exist = Motorcycle::where('student_id',Auth::guard('student')->id())->exists();
                  if($exist == true){
-                     return view('vehicles.registered');
-                 } else {
+                    Alert::error('Oopss', 'You have reached your registration limit. Please proceed to payment');
+                    return view('vehicles.limit_regist');
+
+                 } else { 
                     $motorcycle = $this->store_motorcycle(Auth::guard('student')->id(), $staff = false, $student = true);
+                    Alert::success('Vehicle Registration', 'Your Vehicle is Registered');
                     return view('vehicles.show_motorcycle', ['motorcycle'=> $motorcycle])->with('success', 'Vehicle Created Successfully');
                  
                 }
              } 
                 
-        } elseif (Auth::guard('staff')->check()) {
-            if($request->type =='car') {
+        } elseif (Auth::guard('staff')->check()) { //staff
+            if($request->type =='car') { //staff request for car
                 $times = Car::where('staff_id', Auth::guard('staff')->id())->count();
                 if($times > 1){
-                    return view('vehicles.registered');
+                    Alert::error('Oopss', 'You have reached your registration limit for car. 
+                    Please proceed to payment');
+                    return view('vehicles.limit_regist');
                 } else {
                     $car = $this->store_car(Auth::guard('staff')->id(), $staff = true, $student = false);
                     return view('vehicles.show_car', ['car'=> $car])->with('success', 'Vehicle Created Successfully');
@@ -76,7 +85,9 @@ class VehicleController extends Controller
             } else { //staff request for motorcycle
                 $times = Motorcycle::where('staff_id', Auth::guard('staff')->id())->count();
                 if($times > 1){
-                    return view('vehicles.registered');
+                    Alert::error('Oopss', 'You have reached your registration limit for motorcycle. 
+                    Please proceed to payment');
+                    return view('vehicles.limit_regist');
                 } else {
                     $motorcycle = $this->store_motorcycle(Auth::guard('staff')->id(), $staff = true, $student = false);
                     return view('vehicles.show_motorcycle', ['motorcycle'=> $motorcycle])->with('success', 'Vehicle Created Successfully');
@@ -84,28 +95,33 @@ class VehicleController extends Controller
                     
                 }   
             }
-        } else {
-            if($request->type =='car') {
+         } else { // contractor 
+            if($request->type =='car') { //contractor request for car
                 $times = Car::where('contractor_id', Auth::guard('contractor')->id())->count();
-                dump($times);
-                dump(($times > 1));
+                // dump($times);
+                // dump(($times > 1));
                 if($times > 1){
-                    return view('vehicles.registered');
+                    Alert::error('Oopss', 'You have reached your registration limit for car. 
+                    Please proceed to payment');
+                    return view('vehicles.limit_regist');
                 } else {
                     $car = $this->store_car(Auth::guard('contractor')->id(), $staff = false, $student = false);
+                    Alert::success('Vehicle Registration', 'Your Vehicle is Registered');
                     return view('vehicles.show_car', ['car'=> $car])->with('success', 'Vehicle Created Successfully');
 
                 }   
-            } else {
+            } else { //contractor request for motorcycle
                 $times = Motorcycle::where('contractor_id', Auth::guard('contractor')->id())->count();
-                dump($times);
-                dump(($times > 1));
+                // dump($times);
+                // dump(($times > 1));
                 if($times > 1){
-                    return view('vehicles.registered');
+                    Alert::error('Oopss', 'You have reached your registration limit for motorcycle. 
+                    Please proceed to payment');
+                    return view('vehicles.limit_regist');
                 } else {
                     $motorcycle = $this->store_motorcycle(Auth::guard('contractor')->id(), $staff = false, $student = false);
+                    Alert::success('Vehicle Registration', 'Your Vehicle is Registered');
                     return view('vehicles.show_motorcycle', ['motorcycle'=> $motorcycle])->with('success', 'Vehicle Created Successfully');
-
                 }   
             }
         }    
@@ -113,8 +129,8 @@ class VehicleController extends Controller
 
     public function store_car($id, $staff, $student){
         $car = Car::create(request()->all());
-        $car->upload_license = basename(request('upload_license')->store('uploads'));
-        $car->upload_roadtax = basename(request('upload_roadtax')->store('uploads'));
+        $car->upload_license = basename(request('upload_license')->store('public/images')); //public/images
+        $car->upload_roadtax = basename(request('upload_roadtax')->store('public/images'));
         $car->created_at = now();
         if($staff) {
             $car->staff_id = $id;  
@@ -129,8 +145,8 @@ class VehicleController extends Controller
 
     public function store_motorcycle($id, $staff, $student){
         $motorcycle = Motorcycle::create(request()->all());
-        $motorcycle->upload_license = basename(request('upload_license')->store('uploads'));
-        $motorcycle->upload_roadtax = basename(request('upload_roadtax')->store('uploads'));
+        $motorcycle->upload_license = basename(request('upload_license')->store('public/images'));
+        $motorcycle->upload_roadtax = basename(request('upload_roadtax')->store('public/images'));
         $motorcycle->created_at = now();
         if($staff) {
             $motorcycle->staff_id = $id;  

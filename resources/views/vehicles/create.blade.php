@@ -1,9 +1,9 @@
 @extends('layouts.app2')
 
 @section('content')
-
+    
     <div class="container">
-            <br><br>
+            <br>
             <!-- progress bar -->
             <div class="container">
                 <ul class="progress_bar">
@@ -14,22 +14,26 @@
                 </ul>
             </div>
             <br><br><br><br>
-            dept_company: {{dump(Session::get('dept_company'))}}
-            student_level: {{dump(Session::get('student_level'))}}
-        <form action="{{route('vehicles.store')}}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <!-- Vehicle Details -->
-            <div class="container">
-                <div class="form_title"><h3>Particulars for Vehicle</h3></div>
-
-                <div class="Vehicle_info">
-                    <div class="Vehicle_info_form">
+            <!-- dept_company: {{dump(Session::get('dept_company'))}}
+            student_level: {{dump(Session::get('student_level'))}} -->
+            <div style="color:#554B97;">{{$mystudent_level = Session::get('student_level')}}</div>
+            <div style="color:#554B97;">{{ $mydept_company = Session::get('dept_company')}}</div>
+            <div style="color:#554B97;">{{ $staff_dept = Session::get('staff_dept')}}</div>
+                                
+        <center><div class="form_title_veh"><h3>Particulars for Vehicle</h3></div></center>
+        <!-- <center> -->
+        <div class="Vehicle_info" style="margin-left:165px;">   
+            <form action="{{route('vehicles.store')}}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <!-- Vehicle Details -->
+                
+                <div class="Vehicle_info_form" style="">                    
                         <!-- vehicle Type -->
                         <div class="form-group row">
                             <label for="type" class="col-sm-2 col-form-label" name="type">Vehicle Type</label>
                             <div class="col-sm-4">
+                                    
                                 <div class="custom-control custom-radio custom-control-inline">
-                                    {{$mystudent_level = Session::get('student_level')}}
                                     
                                     @if( isset($mystudent_level) )
                                         @if($mystudent_level != 4 )
@@ -45,14 +49,12 @@
                                             value="car">
                                         @endif
                                     @endif
-
-                                    {{ $mydept_company = Session::get('dept_company')}}
+                                    <!-- to check for contractor -->
                                     @if(isset($mydept_company))
                                         <input type="radio" id="car" name="type" 
                                         class="custom-control-input" value="car">
                                     @endif
-                                    
-                                    {{ $staff_dept = Session::get('staff_dept')}}
+                                    <!-- to check for staff -->
                                     @if(isset($staff_dept))
                                         <input type="radio" id="car" name="type" 
                                         class="custom-control-input" value="car">
@@ -90,8 +92,6 @@
                                 <input type="text" class="form-control" name="color" placeholder="Color">
                             </div>
                         </div>
-                        <!-- <h6>Documents</h6> -->
-            
                         <!-- license upload -->
                         <div class="form-group row">
                             <label for="upload_license" class="col-sm-2 col-form-label">Driving License</label>
@@ -101,24 +101,23 @@
                         </div>
                         <!-- roadtax upload -->
                         <div class="form-group row">
-                            <label for="upload_roadtax" class="col-sm-2 col-form-label">Roadtax</label>
+                           <label  for="upload_roadtax" class="col-sm-2 col-form-label">Roadtax</label>
                             <div class="col-sm-4">
                                 <input type="file" class="form-control" name="upload_roadtax">                               
                             </div>
                         </div>
                         <!-- button submit -->
                         <div class="form-group row  ">
-                            <div class="col-md-6">
-                            <button type="submit" class="btn btn-primary" >Submit</button>
+                            <div class="col-md-6" >
+                            <button type="submit" class="btn btn-primary" style="background-color:#37abc8;">Submit</button>
+                            <!-- <a class="btn btn-info" href="{{route('vehicles.store')}}">Add Vehicle</a> -->
                             </div>
                         </div>  
-                    </div>
                 </div>
                 
-            </div>
-
-        </form> 
-        
+            </form> 
+        </div>
+        <!-- </center> -->
     </div>
 
 @endsection

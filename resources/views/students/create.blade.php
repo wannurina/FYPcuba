@@ -7,7 +7,7 @@
         
         <div class="container">
             <!-- progress bar -->
-            <br><br>
+            <br>
             <div class="container">
                 <ul class="progress_bar">
                     <li class="active">Profile</li>
@@ -29,7 +29,8 @@
                     <div class="form-group row mt-5">
                         <label for="name" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="name" value="{{$student->name}}" disabled>
+                            <input type="text" class="form-control" style="background-color:rgb(173, 209, 223);"
+                            name="name" value="{{$student->name}}" disabled>
                         </div>
                     </div>
 
@@ -37,24 +38,28 @@
                     <div class="form-group row">
                         <label for="matric_no" class="col-sm-2 col-form-label">Matric No</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" name="matric_no" value="{{$student->matric_no}}" disabled>
+                            <input type="text" class="form-control" style="background-color:rgb(173, 209, 223);"
+                            name="matric_no" value="{{$student->matric_no}}" disabled>
                         </div>
 
                         <label for="ic_passport" class="col-sm-2 col-form-label">IC/Passport No</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" name="ic_passport" value="{{$student->ic_passport}}" disabled>
+                            <input type="text" class="form-control" style="background-color:rgb(173, 209, 223);"
+                            name="ic_passport" value="{{$student->ic_passport}}" disabled>
                         </div>
                     </div>
                     <!-- Kuliyyah & Level-->
                     <div class="form-group row">
                         <label for="kuliyyah" class="col-sm-2 col-form-label">Kuliyyah</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" name="kuliyyah" value="{{$student->kuliyyah}}" disabled>
+                            <input type="text" class="form-control" style="background-color:rgb(173, 209, 223);"
+                            name="kuliyyah" value="{{$student->kuliyyah}}" disabled>
                         </div>
 
                         <label for="level" class="col-sm-2 col-form-label">Level</label>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" name="level" value="{{$student->level}}" disabled>
+                            <input type="text" class="form-control" style="background-color:rgb(173, 209, 223);"
+                            name="level" value="{{$student->level}}" disabled>
                         </div>
                     </div>
                     <!-- USER NEED TO INPUT THEIR INFO -->
@@ -69,6 +74,10 @@
                             @error('address')
                             <p class="help is-danger">{{$errors->first('address')}}</p>
                             @enderror
+                            <p style="font-style: italic;">Note: If you are living on campus, please type your Mahallah Address.
+                                For eg. J3.1 Mahallah Asiah
+                            </p>
+                            
                         </div>
                     </div>
                     <!-- Postcode,City,State -->

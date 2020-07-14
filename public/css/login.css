@@ -36,7 +36,7 @@ html {
 	margin-right: auto;
 	margin-left: auto;
   }
-  .instructions h4 { /*untuk instructions di login page*/
+  .instructions h4, .information h4 { /*untuk instructions di login page*/
 	font-size: 30px;
 	line-height: 60px;
 	margin-top: 20px;
@@ -61,7 +61,8 @@ html {
   }
   
   th, td {
-    padding: 15px;
+	padding: 15px;
+	/* width: 100px; */
     }
   /**/
   
@@ -207,6 +208,7 @@ html {
 		  line-height: 60px;
 		  color: #ffff;
 		  font-weight: 600;
+		  margin-top: -110px; /* just added */
 	  }
 	  .forms-26-info p {
 		  color: #ffffffd6;
@@ -229,7 +231,8 @@ html {
 		  grid-template-columns: auto;
 	  grid-template-rows: auto;
 		  grid-gap: 10px;
-	  padding-left: 150px; padding-right: 150px;
+	  padding-left: 50px; /*originally 150px*/
+	  padding-right: 150px;
 	  color: #dfebf5;
 	  }
 	  .form-right-inf input[type="matric_no"],.form-right-inf input[type="password"]

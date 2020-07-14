@@ -9,7 +9,7 @@
     @if(isset($staff))
     <!-- Staff Details -->
     <div class="container">
-            <br><br>
+            <br>
             <!-- progress bar -->
             <div class="container">
                 <ul class="progress_bar">
@@ -31,7 +31,9 @@
                 <div class="form-group row mt-5">
                     <label for="name" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="name" value="{{$staff->name}}" disabled>
+                        <input type="text" class="form-control" 
+                        style="background-color:rgb(173, 209, 223);border-color:white;"
+                        name="name" value="{{$staff->name}}" disabled>
                     </div>
                 </div>
 
@@ -39,19 +41,25 @@
                 <div class="form-group row">
                     <label for="staff_no" class="col-sm-2 col-form-label">Staff No</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="staff_no" value="{{$staff->staff_no}}" disabled>
+                        <input type="text" class="form-control" 
+                        style="background-color:rgb(173, 209, 223);border-color:white;"
+                        name="staff_no" value="{{$staff->staff_no}}" disabled>
                     </div>
 
                     <label for="ic_passport" class="col-sm-2 col-form-label">IC/Passport No</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="ic_passport" value="{{$staff->ic_passport}}" disabled>
+                        <input type="text" class="form-control" 
+                        style="background-color:rgb(173, 209, 223);border-color:white;"
+                        name="ic_passport" value="{{$staff->ic_passport}}" disabled>
                     </div>
                 </div>
                 <!-- Department -->
                 <div class="form-group row">
                     <label for="dept" class="col-sm-2 col-form-label">Department</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="dept" value="{{$staff->dept}}" disabled>
+                        <input type="text" class="form-control" 
+                        style="background-color:rgb(173, 209, 223);border-color:white;"
+                        name="dept" value="{{$staff->dept}}" disabled>
                     </div>
 
                 </div>
@@ -61,7 +69,7 @@
                     <label for="address" class="col-sm-2 col-form-label">Address</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control @error('address') is-danger @enderror" 
-                        name="address" placeholder="Current Address"
+                        name="address" style="background-color:rgb(173, 209, 223);border-color:white;"
                         value="{{$staff->address }}" required autocomplete="address">
 
                         @error('address')
@@ -74,7 +82,7 @@
                     <label for="postcode" class="col-sm-2 col-form-label">Postcode</label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control @error('postcode') is-danger @enderror" 
-                        name="postcode" placeholder="postcode" 
+                        name="postcode" style="background-color:rgb(173, 209, 223);border-color:white;" 
                         value="{{$staff->postcode}}" required autocomplete="postcode">
                             
                         @error('postcode')
@@ -85,7 +93,7 @@
                     <label for="city" class="col-sm-2 col-form-label">City</label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control @error('city') is-danger @enderror" 
-                        name="city" placeholder="city" 
+                        name="city" style="background-color:rgb(173, 209, 223);border-color:white;" 
                         value="{{$staff->city}}" required autocomplete="city">
 
                         @error('city')
@@ -96,7 +104,7 @@
                     <label for="state" class="col-sm-2 col-form-label">State</label>
                     <div class="col-sm-2">
                         <input type="text" class="form-control @error('state') is-danger @enderror" 
-                        name="state" placeholder="state" 
+                        name="state" style="background-color:rgb(173, 209, 223);border-color:white;"
                         value="{{$staff->state}}" required autocomplete="state">
 
                         @error('state')
@@ -109,7 +117,7 @@
                     <label for="phone_no" class="col-sm-2 col-form-label">Phone No</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control @error('phone_no') is-danger @enderror" 
-                        name="phone_no" placeholder="without (-)" 
+                        name="phone_no" style="background-color:rgb(173, 209, 223);border-color:white;" 
                         value="{{$staff->phone_no}}" required autocomplete="phone_no">
 
                         @error('phone_no')
@@ -120,7 +128,7 @@
                     <label for="email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-4">
                         <input type="text" class="form-control @error('email') is-danger @enderror" 
-                        name="email" placeholder="email" 
+                        name="email" style="background-color:rgb(173, 209, 223);border-color:white;"
                         value="{{$staff->email}}" required autocomplete="email">
 
                         @error('email')
@@ -128,15 +136,24 @@
                         @enderror
                     </div>
                 </div>
-
-                <button type="submit" class="btn btn-info">Update</button>
+                <!-- button-->
+                <div class="form-group row" style="margin-left:270px;margin-right:-160px;">
+                    <div class="col-md-3">
+                    <button type="submit" class="btn btn-info">Edit</button>
+                    </div>
+                    
+                    <div class="col-md-3">
+                    {{Session::put('staff_dept', $staff->dept)}}
+                    <a class="btn btn-info" href="{{route('vehicles.create')}}">Add Vehicle</a> 
+                    </div>
+                </div>
                 
             </form>
-            <form action="{{route('vehicles.create')}}" method="get">
+            <!-- <form action="{{route('vehicles.create')}}" method="get">
                 {{Session::put('staff_dept' , $staff->dept)}}
                 <input type="hidden" name="staff_dept" value="{{$staff->dept}}">
                 <button class="btn btn-info" type="submit">Add Vehicle</button>
-            </form>
+            </form> -->
         </div>
     </div>
 

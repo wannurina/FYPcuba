@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use App\Student;
 use Auth;
@@ -75,7 +75,7 @@ class StudentController extends Controller
         $student->email = $request->email;
         $student->save();
         
-            
+        Alert::success('Profile Update', 'Your Profile is Updated');    
         return view('students.show')->with('success', 'Pofile updated successfully')
                                                 ->with('student', $student);
     }

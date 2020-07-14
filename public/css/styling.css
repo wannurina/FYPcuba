@@ -22,39 +22,45 @@ body {
     border: 1px solid black;
     padding: 10pt;
     background-color: rgb(173, 209, 223); /*246, 244, 252*/
+   
   }
-  .form_title_payment, .Payment_info{
+  .form_title_veh h3{
     text-align-last: center; 
     border: 1px solid black;
-    margin: 10px 200px;
     padding: 10pt;
+    /* margin-left: 130pt; */
     background-color: rgb(173, 209, 223); /*246, 244, 252*/
+    width: 70%;
   }
 
   .Vehicle_info, .Student_info, 
   .Staff_info, .Contractor_info{
     border: 1px solid black;
-    padding: 10pt;
+    padding: 30pt;
     background-color: rgb(173, 209, 223);
   }
-  
+   .Vehicle_info{
+    width: 70%;
+    
+  } 
   .Vehicle_info_form{
-    margin: 10px -100px; 
-    position:relative;  
-    /* top:50%;  */
-    left:30%;
+   
+    position: relative;
+    margin-left: 120px;
+    margin-right: -310px;
+    
   }
 
   .form-26-mian {
     background: url(../images/IMG_2671.jpg) no-repeat 0px 0px;
     background-size: cover;
     
-}
-.layer{
-background: url(../images/layer.png) no-repeat 0px 0px;
-background-size: cover;
-min-height: 100vh;
-}
+  }
+  .layer{
+  background: url(../images/layer.png) no-repeat 0px 0px;
+  background-size: cover;
+  min-height: 100vh;
+  }
 .copyright p {
   
   color: #ffffffd6;
@@ -121,3 +127,46 @@ min-height: 100vh;
 /* .progress_bar li.active + li:after{
   background-color: white;
 }   */
+
+
+
+
+/* side navbar Menu */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}

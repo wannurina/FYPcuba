@@ -2,6 +2,7 @@
 
 @section('content')
     <br><br><br>
+    <br>
         <!-- progress bar -->
         <div class="container">
             <ul class="progress_bar">
@@ -12,13 +13,15 @@
                 
             </ul>
         </div>
-    <div class="header"><h3>Thank you! Your Application is Succesfully Registered. 
+        <br><br><br><br> 
+    <div class="header"><h3>Thank you! Your Application is Succesfully Registered.</h3></div>
 
     <br><br><br>
 
     <center>Your Application will be reviewed by Osem first, 
-    then we will notify you via email for further information. 
-    Please wait until you get the notification from Osem.</center>
+        then we will notify you via email for further information. 
+        Please wait until you get the notification from Osem.
+    </center>
         <form action="{{route('logout')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group row  ">
@@ -26,7 +29,7 @@
                             <button type="submit" class="btn done">Done</button>
                             </div>
                 </div>  
-                </h3>
+                
         </form>
 
 @endsection

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use App\Staff;
 use Auth;
@@ -76,7 +77,7 @@ class StaffController extends Controller
         $staff->email = $request->email;
         $staff->save();
         
-            
+        Alert::success('Profile Update', 'Your Profile is Updated');    
         return view('staffs.show')->with('success', 'Pofile updated successfully')
                                                 ->with('staff', $staff);
     }

@@ -179,6 +179,7 @@ html {
           line-height: 60px;
           color: #ffff;
           font-weight: 600;
+          margin-top: -110px; /* just added */
       }
       .forms-26-info p {
           color: #ffffffd6;
@@ -186,7 +187,8 @@ html {
           font-weight: normal;
           font-size: 17px;
           line-height: 25px;
-          margin: 40px 0;
+          margin: 60px 0; /*originally 40px 0*/
+          margin-bottom: 20px; /* just added */
       }
       
       h6.already {
@@ -218,6 +220,7 @@ html {
           height: 45px;
            text-align:left;
           -webkit-appearance: none;
+         
       }
       button.btn {
           background:#d8137f;
@@ -227,10 +230,11 @@ html {
           text-align: center;
           font-size: 17px;
           display: inline-block;
-          width: 100%;
+          width: 50%; /*originally 100%*/
           border: none;
           cursor:pointer;
           height: 45px;
+          
           margin-bottom: 15px;
            -webkit-appearance: none;
       }

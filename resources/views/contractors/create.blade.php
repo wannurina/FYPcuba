@@ -6,7 +6,7 @@
 
     
     <div class="container">
-            <br><br>
+            <br>
             <!-- progress bar -->
             <div class="container">
                 <ul class="progress_bar">
@@ -29,7 +29,9 @@
                 <div class="form-group row mt-5">
                     <label for="name" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="name" value="{{$contractor->name}}" disabled>
+                        <input type="text" class="form-control" 
+                        style="background-color:rgb(173, 209, 223);border-color:white;"
+                        name="name" value="{{$contractor->name}}" disabled>
                     </div>
                 </div>
 
@@ -37,19 +39,25 @@
                 <div class="form-group row">
                     <label for="contractor_no" class="col-sm-2 col-form-label">Contractor No</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="contractor_no" value="{{$contractor->contractor_no}}" disabled>
+                        <input type="text" class="form-control" 
+                        style="background-color:rgb(173, 209, 223);border-color:white;"
+                        name="contractor_no" value="{{$contractor->contractor_no}}" disabled>
                     </div>
 
                     <label for="ic_passport" class="col-sm-2 col-form-label">IC/Passport No</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="ic_passport" value="{{$contractor->ic_passport}}" disabled>
+                        <input type="text" class="form-control" 
+                        style="background-color:rgb(173, 209, 223);border-color:white;"
+                        name="ic_passport" value="{{$contractor->ic_passport}}" disabled>
                     </div>
                 </div>
                 <!-- Department -->
                 <div class="form-group row">
                     <label for="dept_company" class="col-sm-2 col-form-label">Department</label>
                     <div class="col-sm-4">
-                        <input type="text" class="form-control" name="dept_company" value="{{$contractor->dept_company}}" disabled>
+                        <input type="text" class="form-control" 
+                        style="background-color:rgb(173, 209, 223);border-color:white;"
+                        name="dept_company" value="{{$contractor->dept_company}}" disabled>
                     </div>
 
                 </div>

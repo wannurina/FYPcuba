@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Http\Request;
 use App\Contractor;
 use Auth;
@@ -76,7 +77,7 @@ class ContractorController extends Controller
         $contractor->email = $request->email;
         $contractor->save();
         
-            
+        Alert::success('Profile Update', 'Your Profile is Updated');    
         return view('contractors.show')->with('success', 'Profile updated successfully')
                                                 ->with('contractor', $contractor);
     }

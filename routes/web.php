@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use RealRashid\SweetAlert\Facades\Alert;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    // Alert::success('Success Title', 'Success Message');
     return view('welcomepage');
+    
 });
 
 Auth::routes();
@@ -40,7 +43,9 @@ Route::patch('contractors/update', 'ContractorController@update')->name('contrac
 //vehicle punya
 Route::get('vehicles/create', 'VehicleController@create')->name('vehicles.create');
 Route::post('vehicles/store', 'VehicleController@store')->name('vehicles.store');
-Route::get('vehicles/show', 'VehicleController@show')->name('vehicles.show');
+            // Route::get('vehicles/show', 'VehicleController@show')->name('vehicles.show');
+Route::get('vehicles/show_car', 'VehicleController@store')->name('vehicles.show_car');
+Route::get('vehicles/show_motorcycle', 'VehicleController@store')->name('vehicles.show_motorcycle');
 
 
 
@@ -50,7 +55,13 @@ Route::post('payments/store', 'PaymentController@store')->name('payments.store')
 Route::post('payments/show', 'PaymentController@show')->name('payments.show');
 Route::patch('payments/update', 'PaymentController@update')->name('payments.update');
 
-
+//debit
+Route::get('debits/create', 'DebitController@create')->name('debits.create');
+Route::post('debits/store', 'DebitController@store')->name('debits.store');
+Route::post('debits/show', 'DebitController@show')->name('debits.show');
+Route::get('confirmation', function(){
+    return View('confirmation'); 
+});
 //osem
 Route::get('/osem', function () {
     return view('auth.login');
